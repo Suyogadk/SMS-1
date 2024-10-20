@@ -1,0 +1,83 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign-up - STDS-MGT-SYSTEM</title>
+    <link rel="stylesheet" href="signup.css">
+</head>
+<body>
+    <div class="navbar">
+        <div class="title">STDS-MGT-SYSTEM</div>
+        <div class="menu">
+            <a href="../index.html">Home</a>
+            <a href="../about/about.html">About</a>
+            <a href="signup.html">Sign-up</a>
+            <a href="../log-in/login.html">log-in</a>
+            <a href="../admin/adpg.html">Admin-Pannel</a>
+        </div>
+        <div class="hamburger" onclick="toggleMenu()">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+    <div class="signup-form">
+        <h3>Please sign-up to continue</h3>
+        <form>
+            <label for="first-name">First Name</label>
+            <input type="text" id="first-name" name="first-name" required>
+
+            <label for="last-name">Last Name</label>
+            <input type="text" id="last-name" name="last-name" required>
+
+            <label for="username">Username</label>
+            <input type="text" id="username" name="username"  required>
+
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" value="@gmail.com" required>
+
+<!-- gender -->
+             <label>Gender</label>
+            <div class="gender">
+                 
+                <label for="male">Male</label>
+                <input type="radio" id="male" name="gender" value="male" required>
+
+                <label for="female">Female</label>
+                <input type="radio" id="female" name="gender" value="female" required>
+            </div>
+
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" pattern="(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*]).{8,}" required>
+
+            <label for="confirm-password">Confirm Password</label>
+            <input type="password" id="confirm-password" name="confirm-password" required>
+
+            <div class="show-password">
+                <input type="checkbox" id="show-password" onclick="togglePasswordVisibility()">
+                <label for="show-password">Show Password</label>
+            </div>
+
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+    <script>
+        function toggleMenu() {
+            const menu = document.querySelector('.navbar .menu');
+            menu.style.display = menu.style.display === 'flex' ? 'none' : 'flex';
+        }
+
+        function togglePasswordVisibility() {
+            const password = document.getElementById('password');
+            const confirmPassword = document.getElementById('confirm-password');
+            if (password.type === 'password') {
+                password.type = 'text';
+                confirmPassword.type = 'text';
+            } else {
+                password.type = 'password';
+                confirmPassword.type = 'password';
+            }
+        }
+    </script>
+</body>
+</html>

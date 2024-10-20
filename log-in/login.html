@@ -1,0 +1,63 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>log-in STDS-MGT-SYSTEM</title>
+    <link rel="stylesheet" href="login.css">
+</head>
+<body>
+    <div class="navbar">
+        <div class="title">STDS-MGT-SYSTEM</div>
+        <div class="menu">
+            <a href="../index.html">Home</a>
+            <a href="../about/about.html">About</a>
+            <a href="../signup/signup.html">Sign-up</a>
+            <a href="login.html">log-in</a>
+            <a href="../admin/adpg.html">Admin-Pannel</a>
+        </div>
+        <div class="hamburger" onclick="toggleMenu()">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+    <div class="form-container">
+        <h2>Sign-up</h2>
+        <form id="signupForm">
+            <label for="username">Username</label>
+            <input type="text" id="username" name="username" required>
+            
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" pattern="[a-z0-9._%+-]+@gmail\.com$" required>
+            
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" required>
+            
+            <button type="submit">Sign-up</button>
+        </form>
+        <div class="forgot-password">
+            <a href="#">Forgot Password?</a>
+        </div>
+    </div>
+    <script>
+        let attemptCount = 0;
+        const maxAttempts = 5;
+
+        function toggleMenu() {
+            const menu = document.querySelector('.navbar .menu');
+            menu.style.display = menu.style.display === 'flex' ? 'none' : 'flex';
+        }
+
+        document.getElementById('signupForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            attemptCount++;
+            if (attemptCount > maxAttempts) {
+                alert('Maximum attempts exceeded. Please try again later.');
+                return;
+            }
+            // Add your form submission logic here
+            alert('Form submitted successfully!');
+        });
+    </script>
+</body>
+</html>
